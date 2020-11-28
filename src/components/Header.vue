@@ -8,7 +8,5 @@
         alt="Creative Layer Logo"
       />Create Layer User Challenge</b-navbar-brand
     >
-
-    <p></p>
   </b-navbar>
 </template>
