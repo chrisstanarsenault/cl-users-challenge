@@ -18,7 +18,6 @@ module.exports = {
     "arrow-parens": 0,
     "max-len": 0,
     "no-nested-ternary": 0,
-    indent: 0,
-    "vue/return-in-computer-property": 0
+    indent: 0
   }
 };
