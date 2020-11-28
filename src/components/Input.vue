@@ -1,5 +1,10 @@
 <template>
-  <b-input type="text" v-model="filter" placeholder="Search for a user" />
+  <b-input
+    type="text"
+    v-model="filter"
+    placeholder="Search for a user"
+    @keyup="inputFilter"
+  />
 </template>
 
 <script>
@@ -9,6 +14,12 @@ export default {
     return {
       filter: null,
     };
+  },
+  methods: {
+    inputFilter() {
+      const that = this;
+      this.$nextTick(() => that.$emit("getFilterInput", that.filter));
+    },
   },
 };
 </script>

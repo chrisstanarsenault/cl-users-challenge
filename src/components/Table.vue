@@ -6,6 +6,7 @@
       head-variant="dark"
       :items="users"
       :fields="fields"
+      :filter="filtered"
     ></b-table>
   </div>
 </template>
@@ -13,7 +14,7 @@
 <script>
 export default {
   name: "UsersTable",
-  props: ["users"],
+  props: ["users", "filtered"],
   data() {
     return {
       fields: [

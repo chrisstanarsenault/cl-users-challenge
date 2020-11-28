@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <b-container fluid>
-      <FilterInput />
-      <UsersTable :users="users" />
+      <FilterInput @getFilterInput="updateFilter" />
+      <UsersTable :users="users" :filtered="filter" />
     </b-container>
   </div>
 </template>
@@ -17,10 +17,16 @@ export default {
   data() {
     return {
       users: [],
+      filter: null,
     };
   },
 
-  methods: {},
+  methods: {
+    updateFilter(e) {
+      console.log(e);
+      this.filter = e;
+    },
+  },
   async created() {
     await fetch("https://5fbc04c1c09c200016d4160c.mockapi.io/api/v1/customers")
       .then((res) => res.json())
