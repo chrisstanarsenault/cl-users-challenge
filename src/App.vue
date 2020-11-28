@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <b-container fluid>
+      <FilterInput />
       <UsersTable :users="users" />
     </b-container>
   </div>
@@ -8,10 +9,11 @@
 
 <script>
 import UsersTable from "./components/Table.vue";
+import FilterInput from "./components/Input.vue";
 
 export default {
   name: "App",
-  components: { UsersTable },
+  components: { UsersTable, FilterInput },
   data() {
     return {
       users: [],
