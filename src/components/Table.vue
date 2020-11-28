@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-table
+      show-empty
       hover
       striped
       head-variant="dark"
