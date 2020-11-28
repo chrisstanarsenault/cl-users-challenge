@@ -18,6 +18,7 @@ export default {
   methods: {
     inputFilter() {
       const that = this;
+      // $nextTick helps with updating data with KeyUp so it does not render before filter data is fully registered
       this.$nextTick(() => that.$emit("getFilterInput", that.filter));
     },
   },
