@@ -8,8 +8,14 @@
       :items="users"
       :fields="fields"
       :filter="filtered"
-    ></b-table>
-    <UserModal />
+    >
+      <template #cell(details)="row">
+        <b-button size="small" @click="launchModal(row.item)"
+          >Get Full Details</b-button
+        >
+      </template>
+    </b-table>
+    <UserModal :userDetails="this.userModal.content" />
   </div>
 </template>
 
@@ -18,7 +24,7 @@ import UserModal from "./Modal.vue";
 
 export default {
   name: "UsersTable",
-  components: {UserModal}
+  components: { UserModal },
   props: ["users", "filtered"],
   data() {
     return {
@@ -29,6 +35,7 @@ export default {
         { key: "phone_number" },
         { key: "email", label: "Email Address" },
         { key: "createdAt", sortable: true, label: "User Created" },
+        { key: "Details", label: "User Details" },
       ],
       userModal: {
         id: "userModal",
@@ -37,7 +44,8 @@ export default {
     };
   },
   methods: {
-    launchModal() {
+    launchModal(user) {
+      this.userModal.content = user;
       this.$bvModal.show(this.userModal.id);
     },
   },
