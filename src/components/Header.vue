@@ -6,7 +6,7 @@
         fluid
         src="../assets/CL-logo.png"
         alt="Creative Layer Logo"
-      />Create Layer User Challenge</b-navbar-brand
+      />Creative Layer Users Challenge</b-navbar-brand
     >
   </b-navbar>
 </template>
