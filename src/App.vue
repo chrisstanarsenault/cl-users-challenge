@@ -1,11 +1,17 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <b-container fluid>
+      <UsersTable :users="users" />
+    </b-container>
+  </div>
 </template>
 
 <script>
+import UsersTable from "./components/Table.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: { UsersTable },
   data() {
     return {
       users: [],
