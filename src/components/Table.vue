@@ -9,12 +9,16 @@
       :fields="fields"
       :filter="filtered"
     ></b-table>
+    <UserModal />
   </div>
 </template>
 
 <script>
+import UserModal from "./Modal.vue";
+
 export default {
   name: "UsersTable",
+  components: {UserModal}
   props: ["users", "filtered"],
   data() {
     return {
@@ -26,7 +30,16 @@ export default {
         { key: "email", label: "Email Address" },
         { key: "createdAt", sortable: true, label: "User Created" },
       ],
+      userModal: {
+        id: "userModal",
+        content: "",
+      },
     };
+  },
+  methods: {
+    launchModal() {
+      this.$bvModal.show(this.userModal.id);
+    },
   },
 };
 </script>
